@@ -46,7 +46,7 @@ Synthetic corruption is useful for coverage, but it can overestimate production 
 Use a descriptive User-Agent and obey SEC access guidance:
 
 ```bash
-python scripts/download_sec.py \
+  python src/scripts/download_sec.py \
   --limit 1000 \
   --user-agent Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/153.0.0.0 Safari/537.36 "Your Name your.email@example.com"
 ```
@@ -62,7 +62,7 @@ data/real/sec_companies.csv
 `download_openalex.py` downloads real organization records filtered to `type:company`. OpenAlex exposes canonical names, alternatives, acronyms and ROR identifiers. It explicitly describes its institution records as including companies and notes that affiliation strings can be messy. See: https://help.openalex.org/data/institutions/
 
 ```bash
-python scripts/download_openalex.py \
+python src/scripts/download_openalex.py \
   --limit 5000
 ```
 
@@ -79,11 +79,11 @@ OpenAlex's API is free to start and does not require a key, although a key can i
 For SEC data:
 
 ```bash
-python scripts/download_sec.py \
+python src/scripts/download_sec.py \
   --limit 2000 \
   --user-agent "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/153.0.0.0 Safari/537.36 Your Name your.email@example.com"
 
-python scripts/build_real_pairs.py \
+python src/scripts/build_real_pairs.py \
   --input data/real/sec_companies.csv \
   --out-dir data/pairs \
   --positive-per-entity 8 \
@@ -93,10 +93,10 @@ python scripts/build_real_pairs.py \
 For OpenAlex data:
 
 ```bash
-python scripts/download_openalex.py \
+python src/scripts/download_openalex.py \
   --limit 5000
 
-python scripts/build_real_pairs.py \
+python src/scripts/build_real_pairs.py \
   --input data/real/openalex_companies.csv \
   --out-dir data/pairs \
   --positive-per-entity 8 \
@@ -106,7 +106,7 @@ python scripts/build_real_pairs.py \
 You can combine both sources:
 
 ```bash
-python scripts/build_real_pairs.py \
+python src/scripts/build_real_pairs.py \
   --input data/real/sec_companies.csv \
   --input data/real/openalex_companies.csv \
   --out-dir data/pairs
@@ -165,13 +165,13 @@ LABORATORIES          -> ambiguous/generic       REVIEW
 Generate it with:
 
 ```bash
-python scripts/build_difficult_benchmark.py
+python src/scripts/build_difficult_benchmark.py
 ```
 
 Evaluate it with:
 
 ```bash
-python scripts/evaluate_benchmark.py \
+python src/scripts/evaluate_benchmark.py \
   --checkpoint artifacts/best.pt \
   --master data/master_entities.csv \
   --benchmark data/benchmarks/difficult_cases.csv
@@ -184,13 +184,13 @@ The benchmark intentionally distinguishes **"not confident enough to choose"** f
 Synthetic baseline:
 
 ```bash
-python scripts/make_master.py
-python scripts/generate_data.py \
+python src/scripts/make_master.py
+python src/scripts/generate_data.py \
   --master data/master_entities.csv \
   --out-dir data/pairs \
   --n-per-entity 100
 
-python scripts/train.py \
+python src/scripts/train.py \
   --pairs data/pairs/train.csv \
   --val data/pairs/val.csv \
   --epochs 20
@@ -199,7 +199,7 @@ python scripts/train.py \
 Real-data training:
 
 ```bash
-python scripts/train.py \
+python src/scripts/train.py \
   --pairs data/pairs/real_train.csv \
   --val data/pairs/real_val.csv \
   --epochs 20 \
@@ -209,7 +209,7 @@ python scripts/train.py \
 Evaluate thresholds:
 
 ```bash
-python scripts/evaluate.py \
+python src/scripts/evaluate.py \
   --checkpoint artifacts/real_best.pt \
   --pairs data/pairs/real_val.csv
 ```
@@ -217,11 +217,11 @@ python scripts/evaluate.py \
 ## Inference
 
 ```bash
-python scripts/inference.py \
+python src/scripts/inference.py \
   --checkpoint artifacts/best.pt \
   --query "Jhonson & Jhonson"
 
-python scripts/inference.py \
+python src/scripts/inference.py \
   --checkpoint artifacts/best.pt \
   --query "3MLTD"
 ```
@@ -229,7 +229,7 @@ python scripts/inference.py \
 For a real master:
 
 ```bash
-python scripts/inference.py \
+python src/scripts/inference.py \
   --checkpoint artifacts/real_best.pt \
   --master data/pairs/real_master.csv \
   --query "International Business Machines Corp"
@@ -348,7 +348,7 @@ Use `scripts/hierarchical_inference.py` instead of directly treating the PyTorch
 score as the final business decision:
 
 ```bash
-python scripts/hierarchical_inference.py \
+python src/scripts/hierarchical_inference.py \
   --checkpoint artifacts/best.pt \
   --master data/master_entities.csv \
   --relationships data/entity_relationships.csv \

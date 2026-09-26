@@ -10,5 +10,15 @@ def main():
     if args.candidates:
         wanted=set(args.candidates); master=master[master.canonical_name.isin(wanted)].reset_index(drop=True)
     matcher=HybridMatcher(master,model,args.threshold)
-    for row in matcher.match(args.query): print(row)
+    for row in matcher.match(args.query):
+        print(f"decision      : {row['decision']}")
+        print(f"entity_id     : {row['entity_id'] or '(none)'}")
+        print(f"canonical_name: {row['canonical_name'] or '(none)'}")
+        print(f"score         : {row['score']:.4f}")
+        print(f"margin        : {row['margin']:.4f}")
+        if row.get("matched_alias"):
+            print(f"matched_alias : {row['matched_alias']}")
+        if row.get("reason"):
+            print(f"reason        : {row['reason']}")
+        print()
 if __name__=='__main__': main()

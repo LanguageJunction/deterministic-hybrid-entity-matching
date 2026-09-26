@@ -2,6 +2,7 @@ from collections import defaultdict
 import math
 from .normalization import normalize, compact
 from .features import pair_features
+from .tokenizer import content_tokens
 
 try:
     import ahocorasick
@@ -52,6 +53,8 @@ class HybridMatcher:
         aliases = [x for x in [r["canonical_name"]] + str(r.get("aliases", "")).split("|") if x and x != "nan"]
         normalized_query = normalize(query)
         alias_exact = normalized_query in {normalize(x) for x in aliases}
+        if normalized_query == normalize(r["canonical_name"]) or alias_exact:
+            return 1.0
         feat = pair_features(query, r["canonical_name"], alias_exact)
         if self.model is None:
             return max(feat[0], feat[1], feat[2], feat[4], feat[5], feat[9])
@@ -70,14 +73,38 @@ class HybridMatcher:
             matched_alias = next((a for a in aliases if normalize(a) == normalized_query and normalize(a) != normalize(r["canonical_name"])), None)
             rows.append({"entity_id": r["entity_id"], "canonical_name": r["canonical_name"], "score": score,
                          "alias_exact": bool(matched_alias), "matched_alias": matched_alias})
+        if not rows:
+            return [{"entity_id": None, "canonical_name": None, "score": 0.0,
+                     "alias_exact": False, "matched_alias": None, "margin": 0.0,
+                     "decision": "REVIEW", "reason_code": "NO_CANDIDATES",
+                     "reason": "No master candidates were retrieved; manual review is required."}]
         rows.sort(key=lambda x: x["score"], reverse=True)
+        query_tokens = set(content_tokens(normalize(query)))
         for rank, x in enumerate(rows):
             next_score = rows[rank + 1]["score"] if rank + 1 < len(rows) else 0.0
             x["margin"] = x["score"] - next_score
+            canonical_tokens = set(content_tokens(normalize(x["canonical_name"])))
+            canonical_exact = normalize(query) == normalize(x["canonical_name"])
+            broad_token_match = (
+                len(query_tokens) == 1
+                and query_tokens.issubset(canonical_tokens)
+                and not canonical_exact
+                and not x["alias_exact"]
+            )
             if x["score"] < self.threshold:
                 x["decision"] = "NO_MATCH"
-            elif rank > 0 and x["margin"] < self.margin:
+                x["reason_code"] = "LOW_SCORE"
+                x["reason"] = "Candidate score is below the match threshold."
+            elif canonical_exact or x["alias_exact"]:
+                x["decision"] = "MATCH"
+            elif broad_token_match:
                 x["decision"] = "REVIEW"
+                x["reason_code"] = "BROAD_TOKEN"
+                x["reason"] = "Query matches only a generic token in the candidate name."
+            elif x["margin"] < self.margin:
+                x["decision"] = "REVIEW"
+                x["reason_code"] = "LOW_MARGIN"
+                x["reason"] = "Top candidates have scores too close for an automatic match."
             else:
                 x["decision"] = "MATCH"
         return rows[:top_k]

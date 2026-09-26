@@ -3,6 +3,7 @@ import argparse, random, re
 from pathlib import Path
 import pandas as pd
 from rapidfuzz.fuzz import ratio
+from dhem.normalization import compact, normalize
 
 SEED=42
 random.seed(SEED)
@@ -43,20 +44,47 @@ def load_master(path):
     df.to_csv(path,index=False); return df
 
 def make_pairs(master, n_per_entity=80, negative_ratio=1.5):
-    positives=[]; negatives=[]
+    rows=[]
     for _, r in master.iterrows():
-        pool=list(variants(r.canonical_name)) + str(r.aliases).split('|')
-        for _ in range(n_per_entity):
-            q=random.choice(pool)
-            positives.append((q,r.canonical_name,1,r.entity_id))
-        # hard negatives: choose names with some lexical overlap, otherwise random
+        aliases=[x.strip() for x in str(r.aliases).split('|') if x.strip() and x != "nan"]
+        bases=list(dict.fromkeys([r.canonical_name]+aliases))
+        pool=list(dict.fromkeys(q for base in bases for q in variants(base)))
+        queries=bases+[random.choice(pool) for _ in range(max(0,n_per_entity-len(bases)))]
+        alias_keys={normalize(alias) for alias in aliases}
         others=master[master.entity_id!=r.entity_id]
-        for _ in range(max(1,int(n_per_entity*negative_ratio))):
-            cand=random.choice(others.canonical_name.tolist())
-            negatives.append((random.choice(pool),cand,0,r.entity_id))
-    df=pd.DataFrame(positives+negatives,columns=["query","candidate","label","entity_id"])
-    df=df.sample(frac=1,random_state=SEED).reset_index(drop=True)
-    return df
+        for q in queries:
+            alias_exact=int(normalize(q) in alias_keys)
+            rows.append((q,r.canonical_name,1,r.entity_id,alias_exact,"synthetic_positive"))
+            negative_count=int(negative_ratio)+(random.random() < negative_ratio % 1)
+            for _ in range(max(1,negative_count)):
+                cand=random.choice(others.canonical_name.tolist())
+                rows.append((q,cand,0,r.entity_id,0,"synthetic_hard_negative"))
+    return pd.DataFrame(rows,columns=["query","candidate","label","entity_id","alias_exact","source"])
+
+def query_key(value):
+    return compact(value)
+
+def split_by_entity_queries(pairs, master, val_fraction=.2):
+    pairs=pairs.copy()
+    pairs["_query_key"]=pairs["query"].map(query_key)
+    validation_groups=set()
+    rng=random.Random(SEED)
+    for _, entity in master.iterrows():
+        entity_id=entity.entity_id
+        groups=pairs.loc[pairs.entity_id==entity_id,"_query_key"].drop_duplicates().tolist()
+        if not groups:
+            continue
+        aliases=[x.strip() for x in str(entity.aliases).split('|') if x.strip() and x != "nan"]
+        required=query_key(aliases[0]) if aliases else groups[0]
+        if required not in groups:
+            required=groups[0]
+        validation_groups.add((entity_id,required))
+        remaining=[key for key in groups if key != required]
+        rng.shuffle(remaining)
+        target=min(max(1,round(len(groups)*val_fraction)),max(1,len(groups)-1))
+        validation_groups.update((entity_id,key) for key in remaining[:target-1])
+    is_validation=pairs.apply(lambda row:(row["entity_id"],row["_query_key"]) in validation_groups,axis=1)
+    return pairs.loc[~is_validation].drop(columns="_query_key").copy(), pairs.loc[is_validation].drop(columns="_query_key").copy()
 
 def main():
     ap=argparse.ArgumentParser()
@@ -65,15 +93,8 @@ def main():
     ap.add_argument('--n-per-entity',type=int,default=100)
     args=ap.parse_args()
     master=load_master(Path(args.master))
-    df=make_pairs(master,args.n_per_entity)
-    # Entity-aware split: each entity is assigned to one split, avoiding exact
-    # variant leakage. In production, keep a fixed master and time-based split.
-    entities=list(master.entity_id)
-    random.Random(SEED).shuffle(entities)
-    cut=max(1,int(.2*len(entities)))
-    val_entities=set(entities[:cut])
-    val=df[df.entity_id.isin(val_entities)].copy()
-    train=df[~df.entity_id.isin(val_entities)].copy()
+    pairs=make_pairs(master,args.n_per_entity)
+    train,val=split_by_entity_queries(pairs,master)
     out=Path(args.out_dir); out.mkdir(parents=True,exist_ok=True)
     train.to_csv(out/'train.csv',index=False); val.to_csv(out/'val.csv',index=False)
     print(f'train={len(train)} val={len(val)}')

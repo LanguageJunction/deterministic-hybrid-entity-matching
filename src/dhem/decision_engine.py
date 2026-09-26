@@ -91,6 +91,17 @@ class HierarchicalDecisionEngine:
                 evidence={},
             )
 
+        if candidates[0].get("reason_code") == "NO_CANDIDATES":
+            return Decision(
+                query=query,
+                entity_id=None,
+                canonical_name=None,
+                decision="REVIEW",
+                reason_code="NO_CANDIDATES",
+                reason="No master candidates were retrieved; manual review is required.",
+                evidence={},
+            )
+
         qn = normalize(query)
 
         # 1. Exact canonical name. If several entities share the exact name,
