@@ -15,6 +15,11 @@ class Config:
     epochs: int = 20
     threshold: float = 0.75
 
+def default_master_for_checkpoint(checkpoint):
+    if Path(checkpoint).stem.casefold().startswith("real_"):
+        return Path("data/pairs/real_master.csv")
+    return Path("data/master_entities.csv")
+
 FEATURE_NAMES = [
     "exact_normalized", "alias_exact", "token_jaccard",
     "token_containment", "char_jaccard", "levenshtein_ratio",

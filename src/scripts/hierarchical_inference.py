@@ -6,6 +6,7 @@ from pathlib import Path
 
 import pandas as pd
 
+from dhem.config import default_master_for_checkpoint
 from dhem.model import load_checkpoint
 from dhem.matcher import HybridMatcher
 from dhem.decision_engine import HierarchicalDecisionEngine
@@ -29,7 +30,7 @@ def load_graph(path: str | None) -> RelationshipGraph | None:
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--checkpoint", required=True)
-    ap.add_argument("--master", default="data/master_entities.csv")
+    ap.add_argument("--master", default=None, help="Master CSV (defaults based on checkpoint name)")
     ap.add_argument("--relationships", default="data/entity_relationships.csv")
     ap.add_argument("--query", required=True)
     ap.add_argument("--query-entity-id", default=None)
@@ -41,7 +42,8 @@ def main():
     args = ap.parse_args()
 
     model, _ = load_checkpoint(args.checkpoint)
-    master = pd.read_csv(args.master).fillna("")
+    master_path = args.master or default_master_for_checkpoint(args.checkpoint)
+    master = pd.read_csv(master_path).fillna("")
     matcher = HybridMatcher(master, model, args.threshold, args.margin)
     candidates = matcher.match(args.query, top_k=args.top_k)
 
@@ -58,6 +60,7 @@ def main():
     )
 
     payload = result.to_dict()
+    payload["master"] = str(master_path)
     payload["candidates"] = candidates
     if args.json or not args.human_readable:
         print(json.dumps(payload, indent=2, ensure_ascii=False))

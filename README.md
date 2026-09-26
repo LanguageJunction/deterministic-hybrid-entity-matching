@@ -228,20 +228,23 @@ and ranked `predictions`; `hierarchical_inference.py` returns the final decision
 and its candidate list. Add `--human-readable` to either command for terminal
 text output.
 
-Pair each checkpoint with the master catalog used to build its training pairs.
-For example, use `data/master_entities.csv` with the synthetic checkpoint and
-`data/pairs/real_master.csv` with a checkpoint trained on the corresponding
-real pairs. The real-data catalog is separate and does not necessarily contain
-aliases from the curated master, such as `3MLTD` -> `3M`.
+When `--master` is omitted, both inference scripts select the catalog from the
+checkpoint name: `best.pt` uses `data/master_entities.csv`, while `real_*.pt`
+uses `data/pairs/real_master.csv`. You can still pass `--master` to override
+this choice. Keep each checkpoint paired with its training catalog; the
+real-data catalog does not necessarily contain curated aliases such as
+`3MLTD` -> `3M`.
 
 For a real master:
 
 ```bash
 python src/scripts/inference.py \
   --checkpoint artifacts/real_best.pt \
-  --master data/pairs/real_master.csv \
-  --query "International Business Machines Corp"
+  --query "agniCO eagle m l"
 ```
+
+This selects `data/pairs/real_master.csv` automatically and returns
+`AGNICO EAGLE MINES LTD` as the canonical name.
 
 ## Production architecture
 
