@@ -1,0 +1,23 @@
+2026-09-26 16:06:24,065 INFO    MainThread:641134 [wandb_setup.py:_flush():81] Current SDK version is 0.30.0
+2026-09-26 16:06:24,066 INFO    MainThread:641134 [wandb_setup.py:_flush():81] Configure stats pid to 641134
+2026-09-26 16:06:24,066 INFO    MainThread:641134 [wandb_setup.py:_flush():81] Loading settings from environment variables
+2026-09-26 16:06:24,067 INFO    MainThread:641134 [wandb_init.py:setup_run_log_directory():739] Logging user logs to /mnt/c/Users/Admin/Projects/DHEM/dhem_entity_matching/wandb/offline-run-20260926_160624-iiq5ueas/logs/debug.log
+2026-09-26 16:06:24,068 INFO    MainThread:641134 [wandb_init.py:setup_run_log_directory():740] Logging internal logs to /mnt/c/Users/Admin/Projects/DHEM/dhem_entity_matching/wandb/offline-run-20260926_160624-iiq5ueas/logs/debug-internal.log
+2026-09-26 16:06:24,069 INFO    MainThread:641134 [wandb_init.py:init():783] calling init triggers
+2026-09-26 16:06:24,069 INFO    MainThread:641134 [wandb_init.py:init():788] wandb.init called with sweep_config: {}
+config: {'epochs': 20, 'batch_size': 256, 'learning_rate': 0.001, 'weight_decay': 0.0001, 'logging_steps': 50, 'training_pairs': 'data/pairs/train.csv', 'validation_pairs': 'data/pairs/val.csv', '_wandb': {}}
+2026-09-26 16:06:24,069 INFO    MainThread:641134 [wandb_init.py:init():831] starting backend
+2026-09-26 16:06:24,362 INFO    MainThread:641134 [wandb_init.py:init():846] sending inform_init request
+2026-09-26 16:06:24,429 INFO    MainThread:641134 [wandb_init.py:init():851] backend started and connected
+2026-09-26 16:06:24,655 INFO    MainThread:641134 [wandb_init.py:init():921] updated telemetry
+2026-09-26 16:06:24,714 INFO    MainThread:641134 [wandb_init.py:init():944] communicating run to backend with 90.0 second timeout
+2026-09-26 16:06:24,721 INFO    MainThread:641134 [wandb_init.py:init():981] starting run threads in backend
+2026-09-26 16:06:25,821 INFO    MainThread:641134 [wandb_run.py:_console_start():2531] atexit reg
+2026-09-26 16:06:25,821 INFO    MainThread:641134 [wandb_run.py:_redirect():2381] redirect: wrap_raw
+2026-09-26 16:06:25,821 INFO    MainThread:641134 [wandb_run.py:_redirect():2450] Wrapping output streams.
+2026-09-26 16:06:25,822 INFO    MainThread:641134 [wandb_run.py:_redirect():2473] Redirects installed.
+2026-09-26 16:06:25,869 INFO    MainThread:641134 [wandb_init.py:init():1019] run started, returning control to user process
+2026-09-26 16:06:45,094 INFO    MainThread:641134 [wandb_run.py:_finish():2303] finishing run dhem-entity-matching/iiq5ueas
+2026-09-26 16:06:45,095 INFO    MainThread:641134 [wandb_run.py:_atexit_cleanup():2498] got exitcode: 0
+2026-09-26 16:06:45,096 INFO    MainThread:641134 [wandb_run.py:_restore():2480] restore
+2026-09-26 16:06:45,096 INFO    MainThread:641134 [wandb_run.py:_restore():2486] restore done

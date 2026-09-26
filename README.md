@@ -175,8 +175,15 @@ python src/scripts/generate_data.py \
 python src/scripts/train.py \
   --pairs data/pairs/train.csv \
   --val data/pairs/val.csv \
-  --epochs 20
+  --epochs 20 \
+  --logging-steps 50 \
+  --report-to wandb
 ```
+
+Training logs averaged step loss to Weights & Biases every 50 optimizer steps
+and validation metrics after each epoch. The `.env` file is loaded for
+`WANDB_API_KEY` and `WANDB_PROJECT`; the W&B API key is separate from `HF_TOKEN`.
+Use `--report-to none` to train without W&B.
 
 The generated training and validation pairs use the same master catalog, as
 inference does. Every entity is present in both sets, while normalized query

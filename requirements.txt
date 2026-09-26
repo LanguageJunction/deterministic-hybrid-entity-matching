@@ -9,3 +9,7 @@ tqdm>=4.66
 pyahocorasick>=2.1
 rapidfuzz>=3.9
 scikit-learn>=1.4
+wandb>=0.18
+python-dotenv>=1.0
+dotenv>=1.0
+wandb>=0.18

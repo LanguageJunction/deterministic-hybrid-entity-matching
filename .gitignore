@@ -1,6 +1,7 @@
 __pycache__/
 *.pyc
 .venv/
+.env
 artifacts/
 data/pubmed/
 data/pairs/
