@@ -1,0 +1,21 @@
+query,expected_entity_id,expected_decision,case_type
+J&J,E001,MATCH,abbreviation
+J N J,E001,MATCH,spaced_abbreviation
+JNJ,E001,MATCH,ticker_like_alias
+JHONSON & JHONSON,E001,MATCH,typos
+Johnson and Johnson,E001,MATCH,punctuation
+3M LTD,E002,MATCH,legal_suffix
+3 M,E002,MATCH,spacing
+3M COMPANY,E002,MATCH,legal_suffix
+THREE M COMPANY,E002,MATCH,word_form
+PFEIZER,E003,MATCH,typo
+ABBOTT LABS,E004,MATCH,abbreviation
+MICROSOFT CORP.,E010,MATCH,legal_suffix
+IBM CORP,E009,MATCH,abbreviation
+GENERAL ELETRIC,E008,MATCH,typo
+SIEMANS,E007,MATCH,typo
+UNITED,,REVIEW,ambiguous_short_name
+DELTA,,REVIEW,ambiguous_short_name
+AMERICAN,,REVIEW,ambiguous_short_name
+LABORATORIES,,REVIEW,generic_name
+3M JOHNSON,,REVIEW,cross_entity

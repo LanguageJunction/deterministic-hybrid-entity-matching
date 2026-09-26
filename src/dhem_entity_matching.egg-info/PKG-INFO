@@ -1,0 +1,367 @@
+Metadata-Version: 2.4
+Name: dhem-entity-matching
+Version: 0.1.0
+Summary: Deterministic hybrid entity matching
+Requires-Python: >=3.13
+Description-Content-Type: text/markdown
+Requires-Dist: torch>=2.2
+Requires-Dist: pandas>=2.0
+Requires-Dist: numpy>=1.24
+Requires-Dist: requests>=2.31
+Requires-Dist: beautifulsoup4>=4.12
+Requires-Dist: lxml>=5.0
+Requires-Dist: huggingface_hub>=0.24
+Requires-Dist: tqdm>=4.66
+Requires-Dist: pyahocorasick>=2.1
+Requires-Dist: rapidfuzz>=3.9
+Requires-Dist: scikit-learn>=1.4
+
+# DHEM: Deterministic Hybrid Entity Matching
+
+A PyTorch entity-resolution system for noisy master-data names such as:
+
+- `JnJ`, `J N J`, `JNJ` -> `Johnson & Johnson`
+- `Jhonson & Jhonson` -> `Johnson & Johnson`
+- `3MLTD`, `3 M`, `THREE M COMPANY` -> `3M`
+- punctuation, legal suffixes, spacing, token order and common OCR/typing noise
+
+The system deliberately does **not** use an LLM or embedding model. It combines:
+
+1. Unicode/regex normalization
+2. curated aliases and auditable abbreviation rules
+3. Aho-Corasick exact/alias matching
+4. token/character candidate retrieval
+5. token, character, acronym and legal-suffix features
+6. a small PyTorch MLP trained on pairwise match/non-match examples
+7. score + margin logic producing `MATCH`, `REVIEW`, or `NO_MATCH`
+
+## Why add real company data?
+
+Synthetic corruption is useful for coverage, but it can overestimate production performance. This project now has two public-data routes:
+
+### SEC EDGAR
+
+`download_sec.py` builds a real company master from SEC public data. SEC's submissions API contains a company's current name and former names, so former names belonging to the same CIK can be used as source-backed positive pairs. SEC also provides bulk downloads for large-scale work. See the SEC API documentation: https://www.sec.gov/search-filings/edgar-application-programming-interfaces
+
+Use a descriptive User-Agent and obey SEC access guidance:
+
+```bash
+python scripts/download_sec.py \
+  --limit 1000 \
+  --user-agent Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/153.0.0.0 Safari/537.36 "Your Name your.email@example.com"
+```
+
+Output:
+
+```text
+data/real/sec_companies.csv
+```
+
+### OpenAlex organizations
+
+`download_openalex.py` downloads real organization records filtered to `type:company`. OpenAlex exposes canonical names, alternatives, acronyms and ROR identifiers. It explicitly describes its institution records as including companies and notes that affiliation strings can be messy. See: https://help.openalex.org/data/institutions/
+
+```bash
+python scripts/download_openalex.py \
+  --limit 5000
+```
+
+Output:
+
+```text
+data/real/openalex_companies.csv
+```
+
+OpenAlex's API is free to start and does not require a key, although a key can increase usage limits: https://help.openalex.org/api/
+
+## Build real training/validation pairs
+
+For SEC data:
+
+```bash
+python scripts/download_sec.py \
+  --limit 2000 \
+  --user-agent "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/153.0.0.0 Safari/537.36 Your Name your.email@example.com"
+
+python scripts/build_real_pairs.py \
+  --input data/real/sec_companies.csv \
+  --out-dir data/pairs \
+  --positive-per-entity 8 \
+  --negative-per-entity 8
+```
+
+For OpenAlex data:
+
+```bash
+python scripts/download_openalex.py \
+  --limit 5000
+
+python scripts/build_real_pairs.py \
+  --input data/real/openalex_companies.csv \
+  --out-dir data/pairs \
+  --positive-per-entity 8 \
+  --negative-per-entity 8
+```
+
+You can combine both sources:
+
+```bash
+python scripts/build_real_pairs.py \
+  --input data/real/sec_companies.csv \
+  --input data/real/openalex_companies.csv \
+  --out-dir data/pairs
+```
+
+The generator creates:
+
+- positive pairs from source-backed same-entity aliases/former names
+- typo/deletion/duplication/transposition variants
+- punctuation and spacing variants
+- abbreviation variants
+- hard negatives selected using lexical similarity
+- entity-aware train/validation splitting
+
+Files:
+
+```text
+data/pairs/real_master.csv
+data/pairs/real_train.csv
+data/pairs/real_val.csv
+```
+
+### Important limitation
+
+A former SEC name is evidence that two names belonged to the same SEC CIK, but it does **not** mean the two names are universally interchangeable for every vendor/customer master. Subsidiaries, acquisitions, DBAs and legal entities can have different business semantics. Keep the source identifier (`SEC:CIK`, ROR, internal vendor ID, etc.) and use your authoritative master as the final canonical entity system.
+
+## Install
+
+Install the project in editable mode so scripts can import `dhem` from the `src/` layout:
+
+```bash
+uv pip install --python .venv/bin/python -e .
+```
+
+## Difficult benchmark
+
+The curated benchmark deliberately contains realistic cases such as:
+
+```text
+J&J                   -> Johnson & Johnson       MATCH
+J N J                 -> Johnson & Johnson       MATCH
+JNJ                   -> Johnson & Johnson       MATCH
+JHONSON & JHONSON     -> Johnson & Johnson       MATCH
+
+3M LTD                -> 3M                     MATCH
+3 M                   -> 3M                     MATCH
+3M COMPANY            -> 3M                     MATCH
+THREE M COMPANY       -> 3M                     MATCH
+
+UNITED                -> ambiguous               REVIEW
+DELTA                 -> ambiguous               REVIEW
+AMERICAN              -> ambiguous               REVIEW
+LABORATORIES          -> ambiguous/generic       REVIEW
+```
+
+Generate it with:
+
+```bash
+python scripts/build_difficult_benchmark.py
+```
+
+Evaluate it with:
+
+```bash
+python scripts/evaluate_benchmark.py \
+  --checkpoint artifacts/best.pt \
+  --master data/master_entities.csv \
+  --benchmark data/benchmarks/difficult_cases.csv
+```
+
+The benchmark intentionally distinguishes **"not confident enough to choose"** from **"no candidate"**. For production use, keep a third-party/business-rule review queue instead of forcing every query into a match.
+
+## Training
+
+Synthetic baseline:
+
+```bash
+python scripts/make_master.py
+python scripts/generate_data.py \
+  --master data/master_entities.csv \
+  --out-dir data/pairs \
+  --n-per-entity 100
+
+python scripts/train.py \
+  --pairs data/pairs/train.csv \
+  --val data/pairs/val.csv \
+  --epochs 20
+```
+
+Real-data training:
+
+```bash
+python scripts/train.py \
+  --pairs data/pairs/real_train.csv \
+  --val data/pairs/real_val.csv \
+  --epochs 20 \
+  --out artifacts/real_best.pt
+```
+
+Evaluate thresholds:
+
+```bash
+python scripts/evaluate.py \
+  --checkpoint artifacts/real_best.pt \
+  --pairs data/pairs/real_val.csv
+```
+
+## Inference
+
+```bash
+python scripts/inference.py \
+  --checkpoint artifacts/best.pt \
+  --query "Jhonson & Jhonson"
+
+python scripts/inference.py \
+  --checkpoint artifacts/best.pt \
+  --query "3MLTD"
+```
+
+For a real master:
+
+```bash
+python scripts/inference.py \
+  --checkpoint artifacts/real_best.pt \
+  --master data/pairs/real_master.csv \
+  --query "International Business Machines Corp"
+```
+
+## Production architecture
+
+```text
+raw vendor/customer name
+        |
+        v
++-----------------------+
+| normalization         |
+| Unicode / punctuation |
+| legal suffix handling |
++-----------+-----------+
+            |
+            v
++-----------------------+
+| candidate generation  |
+| alias exact           |
+| token inverted index  |
+| char n-grams          |
+| Aho-Corasick          |
++-----------+-----------+
+            |
+            v
+     50-500 candidates
+            |
+            v
++-----------------------+
+| DHEM feature engine   |
+| exact/rule score      |
+| token similarity      |
+| char similarity       |
+| acronym similarity    |
+| length/containment    |
++-----------+-----------+
+            |
+            v
++-----------------------+
+| PyTorch MLP scorer    |
++-----------+-----------+
+            |
+            v
++-------------------------------+
+| score + candidate margin      |
+|                               |
+| MATCH / REVIEW / NO_MATCH     |
++-------------------------------+
+```
+
+For millions of records, replace the in-memory fallback candidate scan in `matcher.py` with a persistent inverted index/search engine. The model should score a small candidate set, not the entire master.
+
+## Data leakage and evaluation
+
+The real pair builder splits by entity ID. This means the validation set contains entities not represented in training pairs, which tests whether the learned feature combination generalizes to new organizations.
+
+For a production benchmark, add a second **time-based** split when historical vendor records are available. Also maintain a hand-reviewed challenge set containing:
+
+- abbreviations (`JNJ`, `IBM`, `GE`)
+- spelling errors (`Jhonson`, `Siemans`)
+- spacing (`3 M`)
+- legal suffixes (`Ltd`, `Inc`, `Corp`)
+- subsidiaries
+- parent vs subsidiary
+- DBA/trade names
+- acquisitions/renames
+- duplicate legal names across jurisdictions
+- generic/ambiguous names
+- country/address/tax-ID conflicts
+
+## PubMed
+
+PubMed remains an optional noisy-text source. It is useful for extracting real affiliation strings, but it is **not** the company ground truth. NCBI provides PubMed download resources and E-utilities. The existing `download_pubmed.py` extracts affiliation strings for augmentation.
+
+## Project structure
+
+```text
+dhem_entity_matching/
+├── data/
+│   ├── master_entities.csv
+│   ├── real/
+│   ├── pairs/
+│   ├── benchmarks/
+│   └── pubmed/
+├── dhem/
+│   ├── config.py
+│   ├── tokenizer.py
+│   ├── normalization.py
+│   ├── rules.py
+│   ├── features.py
+│   ├── dataset.py
+│   ├── model.py
+│   └── matcher.py
+├── scripts/
+│   ├── download_pubmed.py
+│   ├── download_sec.py
+│   ├── download_openalex.py
+│   ├── build_real_pairs.py
+│   ├── build_difficult_benchmark.py
+│   ├── make_master.py
+│   ├── generate_data.py
+│   ├── train.py
+│   ├── evaluate.py
+│   ├── evaluate_benchmark.py
+│   ├── inference.py
+│   └── publish_hf.py
+├── requirements.txt
+└── README.md
+```
+
+## Hierarchical production decision engine
+
+Use `scripts/hierarchical_inference.py` instead of directly treating the PyTorch
+score as the final business decision:
+
+```bash
+python scripts/hierarchical_inference.py \
+  --checkpoint artifacts/best.pt \
+  --master data/master_entities.csv \
+  --relationships data/entity_relationships.csv \
+  --query "Jhonson & Jhonson" \
+  --json
+```
+
+The decision order is:
+
+`EXACT → APPROVED_ALIAS → FORMER_NAME/DBA/SAME_LEGAL_ENTITY → RELATED_ENTITY(REVIEW) → FUZZY_MATCH → REVIEW → NO_MATCH`
+
+Every decision contains an explainable `reason_code` and `evidence` object.
+The engine intentionally does not treat a parent, subsidiary, or affiliate as the
+same legal entity.
+
+See `docs/hierarchical_decision_engine.md`.

@@ -1,0 +1,7 @@
+__pycache__/
+*.pyc
+.venv/
+artifacts/
+data/pubmed/
+data/pairs/
+data-orig/

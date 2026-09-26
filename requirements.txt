@@ -1,0 +1,11 @@
+torch>=2.2
+pandas>=2.0
+numpy>=1.24
+requests>=2.31
+beautifulsoup4>=4.12
+lxml>=5.0
+huggingface_hub>=0.24
+tqdm>=4.66
+pyahocorasick>=2.1
+rapidfuzz>=3.9
+scikit-learn>=1.4
