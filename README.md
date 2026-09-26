@@ -373,3 +373,20 @@ The engine intentionally does not treat a parent, subsidiary, or affiliate as th
 same legal entity.
 
 See `docs/hierarchical_decision_engine.md`.
+
+## Publish models to Hugging Face
+
+Set `HF_TOKEN` in `.env` or export it in your shell, then publish both
+checkpoints and their generated model card/metadata to one model repository.
+Use a full Hugging Face repository ID (`username/repository-name`):
+
+```bash
+python src/scripts/publish_hf.py \
+  --repo-id alokanand002/dhem-entity-matching \
+  --models best real_best
+```
+
+This uploads `artifacts/best.pt` and `artifacts/real_best.pt` under their
+original filenames, along with the generated model card and `model_details.json`.
+To publish a single checkpoint, use `--models best` or `--models real_best`.
+Add `--private` to create a private repository.
