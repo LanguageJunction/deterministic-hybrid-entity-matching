@@ -216,6 +216,11 @@ python src/scripts/inference.py \
   --query "3MLTD"
 ```
 
+Both inference scripts emit JSON by default. `inference.py` returns a `query`
+and ranked `predictions`; `hierarchical_inference.py` returns the final decision
+and its candidate list. Add `--human-readable` to either command for terminal
+text output.
+
 Pair each checkpoint with the master catalog used to build its training pairs.
 For example, use `data/master_entities.csv` with the synthetic checkpoint and
 `data/pairs/real_master.csv` with a checkpoint trained on the corresponding

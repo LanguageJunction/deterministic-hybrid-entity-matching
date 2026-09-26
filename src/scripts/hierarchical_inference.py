@@ -37,6 +37,7 @@ def main():
     ap.add_argument("--threshold", type=float, default=.75)
     ap.add_argument("--margin", type=float, default=.08)
     ap.add_argument("--json", action="store_true")
+    ap.add_argument("--human-readable", action="store_true")
     args = ap.parse_args()
 
     model, _ = load_checkpoint(args.checkpoint)
@@ -58,7 +59,7 @@ def main():
 
     payload = result.to_dict()
     payload["candidates"] = candidates
-    if args.json:
+    if args.json or not args.human_readable:
         print(json.dumps(payload, indent=2, ensure_ascii=False))
     else:
         print(f"decision      : {result.decision}")

@@ -196,6 +196,13 @@ python src/scripts/train.py \
   --epochs 20
 ```
 
+The generated training and validation pairs use the same master catalog, as
+inference does. Every entity is present in both sets, while normalized query
+groups are kept in only one set. Approved aliases are included as positive
+examples and marked with `alias_exact`; the first approved alias for each
+entity is reserved for validation. This lets validation measure alias matching
+without holding out entire master entities.
+
 Real-data training:
 
 ```bash
@@ -223,8 +230,15 @@ python src/scripts/inference.py \
 
 python src/scripts/inference.py \
   --checkpoint artifacts/best.pt \
+  --master data/master_entities.csv \
   --query "3MLTD"
 ```
+
+Pair each checkpoint with the master catalog used to build its training pairs.
+For example, use `data/master_entities.csv` with the synthetic checkpoint and
+`data/pairs/real_master.csv` with a checkpoint trained on the corresponding
+real pairs. The real-data catalog is separate and does not necessarily contain
+aliases from the curated master, such as `3MLTD` -> `3M`.
 
 For a real master:
 
