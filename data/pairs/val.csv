@@ -1,0 +1,672 @@
+query,candidate,label,entity_id,alias_exact,source
+JnJ,Johnson & Johnson,1,E001,1,synthetic_positive
+JnJ,General Electric,0,E001,0,synthetic_hard_negative
+J N J,Johnson & Johnson,1,E001,1,synthetic_positive
+J N J,Microsoft Corporation,0,E001,0,synthetic_hard_negative
+J N J,3M,0,E001,0,synthetic_hard_negative
+JNJ,Johnson & Johnson,1,E001,1,synthetic_positive
+JNJ,Pfizer Inc,0,E001,0,synthetic_hard_negative
+J N J,Johnson & Johnson,1,E001,1,synthetic_positive
+J N J,General Electric,0,E001,0,synthetic_hard_negative
+J N J,Abbott Laboratories,0,E001,0,synthetic_hard_negative
+Jhnson and Johnson,Johnson & Johnson,1,E001,0,synthetic_positive
+Jhnson and Johnson,Abbott Laboratories,0,E001,0,synthetic_hard_negative
+Jhnson and Johnson,Microsoft Corporation,0,E001,0,synthetic_hard_negative
+jnj,Johnson & Johnson,1,E001,1,synthetic_positive
+jnj,Microsoft Corporation,0,E001,0,synthetic_hard_negative
+J N J,Johnson & Johnson,1,E001,1,synthetic_positive
+J N J,Microsoft Corporation,0,E001,0,synthetic_hard_negative
+Johnson  Jonhson,Johnson & Johnson,1,E001,0,synthetic_positive
+Johnson  Jonhson,Merck & Co,0,E001,0,synthetic_hard_negative
+JNJ,Johnson & Johnson,1,E001,1,synthetic_positive
+JNJ,General Electric,0,E001,0,synthetic_hard_negative
+Jhnson and Johnson,Johnson & Johnson,1,E001,0,synthetic_positive
+Jhnson and Johnson,Siemens AG,0,E001,0,synthetic_hard_negative
+J N J,Johnson & Johnson,1,E001,1,synthetic_positive
+J N J,Merck & Co,0,E001,0,synthetic_hard_negative
+J N J,Pfizer Inc,0,E001,0,synthetic_hard_negative
+j n j,Johnson & Johnson,1,E001,1,synthetic_positive
+j n j,General Electric,0,E001,0,synthetic_hard_negative
+j n j,International Business Machines,0,E001,0,synthetic_hard_negative
+jnj,Johnson & Johnson,1,E001,1,synthetic_positive
+jnj,Microsoft Corporation,0,E001,0,synthetic_hard_negative
+jnj,3M,0,E001,0,synthetic_hard_negative
+J N J,Johnson & Johnson,1,E001,1,synthetic_positive
+J N J,Siemens AG,0,E001,0,synthetic_hard_negative
+J N J,3M,0,E001,0,synthetic_hard_negative
+JNJ,Johnson & Johnson,1,E001,1,synthetic_positive
+JNJ,Microsoft Corporation,0,E001,0,synthetic_hard_negative
+JNJ,Pfizer Inc,0,E001,0,synthetic_hard_negative
+J N J,Johnson & Johnson,1,E001,1,synthetic_positive
+J N J,General Electric,0,E001,0,synthetic_hard_negative
+JNJ,Johnson & Johnson,1,E001,1,synthetic_positive
+JNJ,Bayer AG,0,E001,0,synthetic_hard_negative
+JNJ,Merck & Co,0,E001,0,synthetic_hard_negative
+JNJ,Johnson & Johnson,1,E001,1,synthetic_positive
+JNJ,General Electric,0,E001,0,synthetic_hard_negative
+JNJ,Abbott Laboratories,0,E001,0,synthetic_hard_negative
+J N J,Johnson & Johnson,1,E001,1,synthetic_positive
+J N J,Pfizer Inc,0,E001,0,synthetic_hard_negative
+J N J,Pfizer Inc,0,E001,0,synthetic_hard_negative
+J N J,Johnson & Johnson,1,E001,1,synthetic_positive
+J N J,Abbott Laboratories,0,E001,0,synthetic_hard_negative
+j n j,Johnson & Johnson,1,E001,1,synthetic_positive
+j n j,Bayer AG,0,E001,0,synthetic_hard_negative
+j n j,Johnson & Johnson,1,E001,1,synthetic_positive
+j n j,Pfizer Inc,0,E001,0,synthetic_hard_negative
+j n j,Abbott Laboratories,0,E001,0,synthetic_hard_negative
+Jhnson and Johnson,Johnson & Johnson,1,E001,0,synthetic_positive
+Jhnson and Johnson,Siemens AG,0,E001,0,synthetic_hard_negative
+3M Ltd,3M,1,E002,1,synthetic_positive
+3M Ltd,Merck & Co,0,E002,0,synthetic_hard_negative
+3M Ltd,Microsoft Corporation,0,E002,0,synthetic_hard_negative
+3MLTD,3M,1,E002,1,synthetic_positive
+3MLTD,Abbott Laboratories,0,E002,0,synthetic_hard_negative
+3MLTD,Pfizer Inc,0,E002,0,synthetic_hard_negative
+3M Company,3M,1,E002,1,synthetic_positive
+3M Company,Merck & Co,0,E002,0,synthetic_hard_negative
+3MLtd,3M,1,E002,1,synthetic_positive
+3MLtd,Merck & Co,0,E002,0,synthetic_hard_negative
+3m company,3M,1,E002,1,synthetic_positive
+3m company,Microsoft Corporation,0,E002,0,synthetic_hard_negative
+3m company,International Business Machines,0,E002,0,synthetic_hard_negative
+3M Company,3M,1,E002,1,synthetic_positive
+3M Company,International Business Machines,0,E002,0,synthetic_hard_negative
+3M Company,Microsoft Corporation,0,E002,0,synthetic_hard_negative
+3MLTD,3M,1,E002,1,synthetic_positive
+3MLTD,International Business Machines,0,E002,0,synthetic_hard_negative
+3M COMPANY,3M,1,E002,1,synthetic_positive
+3M COMPANY,Microsoft Corporation,0,E002,0,synthetic_hard_negative
+3M Ltd,3M,1,E002,1,synthetic_positive
+3M Ltd,Merck & Co,0,E002,0,synthetic_hard_negative
+3M Ltd,Bayer AG,0,E002,0,synthetic_hard_negative
+3MLTD,3M,1,E002,1,synthetic_positive
+3MLTD,Siemens AG,0,E002,0,synthetic_hard_negative
+3MLTD,Microsoft Corporation,0,E002,0,synthetic_hard_negative
+3M Ltd,3M,1,E002,1,synthetic_positive
+3M Ltd,General Electric,0,E002,0,synthetic_hard_negative
+3M Ltd,Siemens AG,0,E002,0,synthetic_hard_negative
+3m ltd,3M,1,E002,1,synthetic_positive
+3m ltd,General Electric,0,E002,0,synthetic_hard_negative
+3mltd,3M,1,E002,1,synthetic_positive
+3mltd,Microsoft Corporation,0,E002,0,synthetic_hard_negative
+Three M Compay,3M,1,E002,0,synthetic_positive
+Three M Compay,General Electric,0,E002,0,synthetic_hard_negative
+Three M Compay,Johnson & Johnson,0,E002,0,synthetic_hard_negative
+3MLtd,3M,1,E002,1,synthetic_positive
+3MLtd,General Electric,0,E002,0,synthetic_hard_negative
+3MLtd,Siemens AG,0,E002,0,synthetic_hard_negative
+3m ltd,3M,1,E002,1,synthetic_positive
+3m ltd,Merck & Co,0,E002,0,synthetic_hard_negative
+3m company,3M,1,E002,1,synthetic_positive
+3m company,Johnson & Johnson,0,E002,0,synthetic_hard_negative
+3m company,Abbott Laboratories,0,E002,0,synthetic_hard_negative
+3MLTD,3M,1,E002,1,synthetic_positive
+3MLTD,Merck & Co,0,E002,0,synthetic_hard_negative
+Thre M,3M,1,E002,0,synthetic_positive
+Thre M,General Electric,0,E002,0,synthetic_hard_negative
+3MLTD,3M,1,E002,1,synthetic_positive
+3MLTD,Johnson & Johnson,0,E002,0,synthetic_hard_negative
+3m ltd,3M,1,E002,1,synthetic_positive
+3m ltd,Bayer AG,0,E002,0,synthetic_hard_negative
+3m ltd,Siemens AG,0,E002,0,synthetic_hard_negative
+3MLTD,3M,1,E002,1,synthetic_positive
+3MLTD,International Business Machines,0,E002,0,synthetic_hard_negative
+3m company,3M,1,E002,1,synthetic_positive
+3m company,Siemens AG,0,E002,0,synthetic_hard_negative
+3m company,International Business Machines,0,E002,0,synthetic_hard_negative
+3mltd,3M,1,E002,1,synthetic_positive
+3mltd,Microsoft Corporation,0,E002,0,synthetic_hard_negative
+3mltd,Siemens AG,0,E002,0,synthetic_hard_negative
+Pfizer,Pfizer Inc,1,E003,1,synthetic_positive
+Pfizer,Bayer AG,0,E003,0,synthetic_hard_negative
+PFIZER,Pfizer Inc,1,E003,1,synthetic_positive
+PFIZER,Siemens AG,0,E003,0,synthetic_hard_negative
+PFIZER,Siemens AG,0,E003,0,synthetic_hard_negative
+PFIZER,Pfizer Inc,1,E003,1,synthetic_positive
+PFIZER,3M,0,E003,0,synthetic_hard_negative
+PFIZER,Siemens AG,0,E003,0,synthetic_hard_negative
+Pfezer,Pfizer Inc,1,E003,0,synthetic_positive
+Pfezer,International Business Machines,0,E003,0,synthetic_hard_negative
+Pfizer,Pfizer Inc,1,E003,1,synthetic_positive
+Pfizer,International Business Machines,0,E003,0,synthetic_hard_negative
+Pfier,Pfizer Inc,1,E003,0,synthetic_positive
+Pfier,Bayer AG,0,E003,0,synthetic_hard_negative
+Pfier,Pfizer Inc,1,E003,0,synthetic_positive
+Pfier,General Electric,0,E003,0,synthetic_hard_negative
+pfizer,Pfizer Inc,1,E003,1,synthetic_positive
+pfizer,International Business Machines,0,E003,0,synthetic_hard_negative
+pfizer,Johnson & Johnson,0,E003,0,synthetic_hard_negative
+pfizer,Pfizer Inc,1,E003,1,synthetic_positive
+pfizer,General Electric,0,E003,0,synthetic_hard_negative
+Pfizer,Pfizer Inc,1,E003,1,synthetic_positive
+Pfizer,Microsoft Corporation,0,E003,0,synthetic_hard_negative
+Pfier,Pfizer Inc,1,E003,0,synthetic_positive
+Pfier,Merck & Co,0,E003,0,synthetic_hard_negative
+Pfier,Pfizer Inc,1,E003,0,synthetic_positive
+Pfier,General Electric,0,E003,0,synthetic_hard_negative
+Pfier,Siemens AG,0,E003,0,synthetic_hard_negative
+Abbott Labs,Abbott Laboratories,1,E004,1,synthetic_positive
+Abbott Labs,Merck & Co,0,E004,0,synthetic_hard_negative
+AbbottLabs,Abbott Laboratories,1,E004,0,synthetic_positive
+AbbottLabs,Pfizer Inc,0,E004,0,synthetic_hard_negative
+AbbottLabs,Pfizer Inc,0,E004,0,synthetic_hard_negative
+ABBOTT LABS,Abbott Laboratories,1,E004,1,synthetic_positive
+ABBOTT LABS,Bayer AG,0,E004,0,synthetic_hard_negative
+ABBOTT LABS,Johnson & Johnson,0,E004,0,synthetic_hard_negative
+AbbottLabs,Abbott Laboratories,1,E004,0,synthetic_positive
+AbbottLabs,International Business Machines,0,E004,0,synthetic_hard_negative
+Abbott Laboraory,Abbott Laboratories,1,E004,0,synthetic_positive
+Abbott Laboraory,General Electric,0,E004,0,synthetic_hard_negative
+ABBOTT LABS,Abbott Laboratories,1,E004,1,synthetic_positive
+ABBOTT LABS,3M,0,E004,0,synthetic_hard_negative
+ABBOTT LABS,International Business Machines,0,E004,0,synthetic_hard_negative
+abbott labs,Abbott Laboratories,1,E004,1,synthetic_positive
+abbott labs,3M,0,E004,0,synthetic_hard_negative
+Abbott Labs,Abbott Laboratories,1,E004,1,synthetic_positive
+Abbott Labs,Microsoft Corporation,0,E004,0,synthetic_hard_negative
+abbott labs,Abbott Laboratories,1,E004,1,synthetic_positive
+abbott labs,Merck & Co,0,E004,0,synthetic_hard_negative
+abbott labs,General Electric,0,E004,0,synthetic_hard_negative
+Abbott Laboraory,Abbott Laboratories,1,E004,0,synthetic_positive
+Abbott Laboraory,International Business Machines,0,E004,0,synthetic_hard_negative
+Abbott Laboraory,General Electric,0,E004,0,synthetic_hard_negative
+Abbott Laboraory,Abbott Laboratories,1,E004,0,synthetic_positive
+Abbott Laboraory,Bayer AG,0,E004,0,synthetic_hard_negative
+Abbott Laboraory,Siemens AG,0,E004,0,synthetic_hard_negative
+Abbott Laboraory,Abbott Laboratories,1,E004,0,synthetic_positive
+Abbott Laboraory,3M,0,E004,0,synthetic_hard_negative
+abbott labs,Abbott Laboratories,1,E004,1,synthetic_positive
+abbott labs,Bayer AG,0,E004,0,synthetic_hard_negative
+abbott labs,Johnson & Johnson,0,E004,0,synthetic_hard_negative
+ABBOTT LABS,Abbott Laboratories,1,E004,1,synthetic_positive
+ABBOTT LABS,Merck & Co,0,E004,0,synthetic_hard_negative
+Abbott Laboraory,Abbott Laboratories,1,E004,0,synthetic_positive
+Abbott Laboraory,Bayer AG,0,E004,0,synthetic_hard_negative
+AbbottLabs,Abbott Laboratories,1,E004,0,synthetic_positive
+AbbottLabs,Microsoft Corporation,0,E004,0,synthetic_hard_negative
+AbbottLabs,Merck & Co,0,E004,0,synthetic_hard_negative
+ABBOTT LABS,Abbott Laboratories,1,E004,1,synthetic_positive
+ABBOTT LABS,3M,0,E004,0,synthetic_hard_negative
+ABBOTT LABS,Siemens AG,0,E004,0,synthetic_hard_negative
+abbott labs,Abbott Laboratories,1,E004,1,synthetic_positive
+abbott labs,Pfizer Inc,0,E004,0,synthetic_hard_negative
+Abbot Laboratoories,Abbott Laboratories,1,E004,0,synthetic_positive
+Abbot Laboratoories,International Business Machines,0,E004,0,synthetic_hard_negative
+ABBOTT LABS,Abbott Laboratories,1,E004,1,synthetic_positive
+ABBOTT LABS,Siemens AG,0,E004,0,synthetic_hard_negative
+ABBOTT LABS,Abbott Laboratories,1,E004,1,synthetic_positive
+ABBOTT LABS,Bayer AG,0,E004,0,synthetic_hard_negative
+ABBOTT LABS,Siemens AG,0,E004,0,synthetic_hard_negative
+Abbott Laboraory,Abbott Laboratories,1,E004,0,synthetic_positive
+Abbott Laboraory,3M,0,E004,0,synthetic_hard_negative
+ABBOTT LABS,Abbott Laboratories,1,E004,1,synthetic_positive
+ABBOTT LABS,Merck & Co,0,E004,0,synthetic_hard_negative
+AbbottLabs,Abbott Laboratories,1,E004,0,synthetic_positive
+AbbottLabs,Bayer AG,0,E004,0,synthetic_hard_negative
+AbbottLabs,Merck & Co,0,E004,0,synthetic_hard_negative
+Abbot Laboratoories,Abbott Laboratories,1,E004,0,synthetic_positive
+Abbot Laboratoories,International Business Machines,0,E004,0,synthetic_hard_negative
+Abbott Laboraory,Abbott Laboratories,1,E004,0,synthetic_positive
+Abbott Laboraory,Bayer AG,0,E004,0,synthetic_hard_negative
+Abbott Laboraory,Abbott Laboratories,1,E004,0,synthetic_positive
+Abbott Laboraory,Johnson & Johnson,0,E004,0,synthetic_hard_negative
+Abbott Laboraory,Johnson & Johnson,0,E004,0,synthetic_hard_negative
+Merck,Merck & Co,1,E005,1,synthetic_positive
+Merck,Microsoft Corporation,0,E005,0,synthetic_hard_negative
+Merck and Company,Merck & Co,1,E005,1,synthetic_positive
+Merck and Company,Microsoft Corporation,0,E005,0,synthetic_hard_negative
+MerckandCompany,Merck & Co,1,E005,0,synthetic_positive
+MerckandCompany,Pfizer Inc,0,E005,0,synthetic_hard_negative
+Merck and Company,Merck & Co,1,E005,1,synthetic_positive
+Merck and Company,Bayer AG,0,E005,0,synthetic_hard_negative
+merck,Merck & Co,1,E005,1,synthetic_positive
+merck,Abbott Laboratories,0,E005,0,synthetic_hard_negative
+Merck an dCompany,Merck & Co,1,E005,0,synthetic_positive
+Merck an dCompany,General Electric,0,E005,0,synthetic_hard_negative
+merck and company,Merck & Co,1,E005,1,synthetic_positive
+merck and company,General Electric,0,E005,0,synthetic_hard_negative
+Merck and Company,Merck & Co,1,E005,1,synthetic_positive
+Merck and Company,Johnson & Johnson,0,E005,0,synthetic_hard_negative
+merck,Merck & Co,1,E005,1,synthetic_positive
+merck,3M,0,E005,0,synthetic_hard_negative
+merck and company,Merck & Co,1,E005,1,synthetic_positive
+merck and company,Pfizer Inc,0,E005,0,synthetic_hard_negative
+merck and company,Bayer AG,0,E005,0,synthetic_hard_negative
+Merck and Company,Merck & Co,1,E005,1,synthetic_positive
+Merck and Company,Microsoft Corporation,0,E005,0,synthetic_hard_negative
+Merck and Company,Siemens AG,0,E005,0,synthetic_hard_negative
+Merck and Company,Merck & Co,1,E005,1,synthetic_positive
+Merck and Company,3M,0,E005,0,synthetic_hard_negative
+Merck and Company,Siemens AG,0,E005,0,synthetic_hard_negative
+merck and company,Merck & Co,1,E005,1,synthetic_positive
+merck and company,Siemens AG,0,E005,0,synthetic_hard_negative
+merck and company,3M,0,E005,0,synthetic_hard_negative
+merck and company,Merck & Co,1,E005,1,synthetic_positive
+merck and company,Siemens AG,0,E005,0,synthetic_hard_negative
+MERCK,Merck & Co,1,E005,1,synthetic_positive
+MERCK,International Business Machines,0,E005,0,synthetic_hard_negative
+MERCK,Merck & Co,1,E005,1,synthetic_positive
+MERCK,Johnson & Johnson,0,E005,0,synthetic_hard_negative
+MERCK,3M,0,E005,0,synthetic_hard_negative
+Merck,Merck & Co,1,E005,1,synthetic_positive
+Merck,Abbott Laboratories,0,E005,0,synthetic_hard_negative
+Merck,Pfizer Inc,0,E005,0,synthetic_hard_negative
+MERCK AND COMPANY,Merck & Co,1,E005,1,synthetic_positive
+MERCK AND COMPANY,Bayer AG,0,E005,0,synthetic_hard_negative
+MERCK AND COMPANY,Abbott Laboratories,0,E005,0,synthetic_hard_negative
+merck,Merck & Co,1,E005,1,synthetic_positive
+merck,Johnson & Johnson,0,E005,0,synthetic_hard_negative
+merck,Abbott Laboratories,0,E005,0,synthetic_hard_negative
+merck,Merck & Co,1,E005,1,synthetic_positive
+merck,Pfizer Inc,0,E005,0,synthetic_hard_negative
+merck,Merck & Co,1,E005,1,synthetic_positive
+merck,Siemens AG,0,E005,0,synthetic_hard_negative
+MerckandCompany,Merck & Co,1,E005,0,synthetic_positive
+MerckandCompany,Microsoft Corporation,0,E005,0,synthetic_hard_negative
+Merck,Merck & Co,1,E005,1,synthetic_positive
+Merck,Siemens AG,0,E005,0,synthetic_hard_negative
+merck,Merck & Co,1,E005,1,synthetic_positive
+merck,International Business Machines,0,E005,0,synthetic_hard_negative
+MERCK,Merck & Co,1,E005,1,synthetic_positive
+MERCK,Microsoft Corporation,0,E005,0,synthetic_hard_negative
+Merck,Merck & Co,1,E005,1,synthetic_positive
+Merck,Microsoft Corporation,0,E005,0,synthetic_hard_negative
+Merck,International Business Machines,0,E005,0,synthetic_hard_negative
+Merck,Merck & Co,1,E005,1,synthetic_positive
+Merck,3M,0,E005,0,synthetic_hard_negative
+Merck,General Electric,0,E005,0,synthetic_hard_negative
+MerckandCompany,Merck & Co,1,E005,0,synthetic_positive
+MerckandCompany,Pfizer Inc,0,E005,0,synthetic_hard_negative
+MerckandCompany,Microsoft Corporation,0,E005,0,synthetic_hard_negative
+merck,Merck & Co,1,E005,1,synthetic_positive
+merck,General Electric,0,E005,0,synthetic_hard_negative
+merck,Pfizer Inc,0,E005,0,synthetic_hard_negative
+merck and company,Merck & Co,1,E005,1,synthetic_positive
+merck and company,International Business Machines,0,E005,0,synthetic_hard_negative
+merck and company,Johnson & Johnson,0,E005,0,synthetic_hard_negative
+MERCK AND COMPANY,Merck & Co,1,E005,1,synthetic_positive
+MERCK AND COMPANY,3M,0,E005,0,synthetic_hard_negative
+MERCK AND COMPANY,Pfizer Inc,0,E005,0,synthetic_hard_negative
+merck and company,Merck & Co,1,E005,1,synthetic_positive
+merck and company,General Electric,0,E005,0,synthetic_hard_negative
+MERCK,Merck & Co,1,E005,1,synthetic_positive
+MERCK,Bayer AG,0,E005,0,synthetic_hard_negative
+MERCK,Abbott Laboratories,0,E005,0,synthetic_hard_negative
+MERCK,Merck & Co,1,E005,1,synthetic_positive
+MERCK,International Business Machines,0,E005,0,synthetic_hard_negative
+Merck,Merck & Co,1,E005,1,synthetic_positive
+Merck,Microsoft Corporation,0,E005,0,synthetic_hard_negative
+merck,Merck & Co,1,E005,1,synthetic_positive
+merck,Pfizer Inc,0,E005,0,synthetic_hard_negative
+merck,3M,0,E005,0,synthetic_hard_negative
+Merck an dCompany,Merck & Co,1,E005,0,synthetic_positive
+Merck an dCompany,International Business Machines,0,E005,0,synthetic_hard_negative
+Merck an dCompany,3M,0,E005,0,synthetic_hard_negative
+Bayer,Bayer AG,1,E006,1,synthetic_positive
+Bayer,Merck & Co,0,E006,0,synthetic_hard_negative
+Bayer,General Electric,0,E006,0,synthetic_hard_negative
+bayer,Bayer AG,1,E006,1,synthetic_positive
+bayer,International Business Machines,0,E006,0,synthetic_hard_negative
+bayer,Bayer AG,1,E006,1,synthetic_positive
+bayer,Johnson & Johnson,0,E006,0,synthetic_hard_negative
+Bayer AAktiengesellschaft,Bayer AG,1,E006,0,synthetic_positive
+Bayer AAktiengesellschaft,International Business Machines,0,E006,0,synthetic_hard_negative
+Bayer AAktiengesellschaft,International Business Machines,0,E006,0,synthetic_hard_negative
+BAYER,Bayer AG,1,E006,1,synthetic_positive
+BAYER,3M,0,E006,0,synthetic_hard_negative
+Bayer AAktiengesellschaft,Bayer AG,1,E006,0,synthetic_positive
+Bayer AAktiengesellschaft,Siemens AG,0,E006,0,synthetic_hard_negative
+Bayer AAktiengesellschaft,Microsoft Corporation,0,E006,0,synthetic_hard_negative
+BAYER,Bayer AG,1,E006,1,synthetic_positive
+BAYER,Abbott Laboratories,0,E006,0,synthetic_hard_negative
+BAYER,General Electric,0,E006,0,synthetic_hard_negative
+bayer,Bayer AG,1,E006,1,synthetic_positive
+bayer,Siemens AG,0,E006,0,synthetic_hard_negative
+bayer,International Business Machines,0,E006,0,synthetic_hard_negative
+BAYER,Bayer AG,1,E006,1,synthetic_positive
+BAYER,Siemens AG,0,E006,0,synthetic_hard_negative
+Bayer,Bayer AG,1,E006,1,synthetic_positive
+Bayer,Abbott Laboratories,0,E006,0,synthetic_hard_negative
+Bayer,Bayer AG,1,E006,1,synthetic_positive
+Bayer,Abbott Laboratories,0,E006,0,synthetic_hard_negative
+BAYER,Bayer AG,1,E006,1,synthetic_positive
+BAYER,Abbott Laboratories,0,E006,0,synthetic_hard_negative
+Bayer,Bayer AG,1,E006,1,synthetic_positive
+Bayer,Merck & Co,0,E006,0,synthetic_hard_negative
+Bayer AAktiengesellschaft,Bayer AG,1,E006,0,synthetic_positive
+Bayer AAktiengesellschaft,Siemens AG,0,E006,0,synthetic_hard_negative
+Bayer AAktiengesellschaft,International Business Machines,0,E006,0,synthetic_hard_negative
+BAYER,Bayer AG,1,E006,1,synthetic_positive
+BAYER,Pfizer Inc,0,E006,0,synthetic_hard_negative
+BAYER,Johnson & Johnson,0,E006,0,synthetic_hard_negative
+BAYER,Bayer AG,1,E006,1,synthetic_positive
+BAYER,Pfizer Inc,0,E006,0,synthetic_hard_negative
+Bayer AAktiengesellschaft,Bayer AG,1,E006,0,synthetic_positive
+Bayer AAktiengesellschaft,International Business Machines,0,E006,0,synthetic_hard_negative
+Bayer AAktiengesellschaft,International Business Machines,0,E006,0,synthetic_hard_negative
+bayer,Bayer AG,1,E006,1,synthetic_positive
+bayer,Merck & Co,0,E006,0,synthetic_hard_negative
+BAYER,Bayer AG,1,E006,1,synthetic_positive
+BAYER,Abbott Laboratories,0,E006,0,synthetic_hard_negative
+Bayer AAktiengesellschaft,Bayer AG,1,E006,0,synthetic_positive
+Bayer AAktiengesellschaft,Johnson & Johnson,0,E006,0,synthetic_hard_negative
+bayer,Bayer AG,1,E006,1,synthetic_positive
+bayer,Abbott Laboratories,0,E006,0,synthetic_hard_negative
+bayer,International Business Machines,0,E006,0,synthetic_hard_negative
+Siemens AG,Siemens AG,1,E007,0,synthetic_positive
+Siemens AG,Johnson & Johnson,0,E007,0,synthetic_hard_negative
+Siemens,Siemens AG,1,E007,1,synthetic_positive
+Siemens,3M,0,E007,0,synthetic_hard_negative
+siemens,Siemens AG,1,E007,1,synthetic_positive
+siemens,General Electric,0,E007,0,synthetic_hard_negative
+siemens,International Business Machines,0,E007,0,synthetic_hard_negative
+Siemens,Siemens AG,1,E007,1,synthetic_positive
+Siemens,Microsoft Corporation,0,E007,0,synthetic_hard_negative
+Siemens,Pfizer Inc,0,E007,0,synthetic_hard_negative
+siemens,Siemens AG,1,E007,1,synthetic_positive
+siemens,International Business Machines,0,E007,0,synthetic_hard_negative
+Siemen sAG,Siemens AG,1,E007,0,synthetic_positive
+Siemen sAG,General Electric,0,E007,0,synthetic_hard_negative
+Siemen sAG,Abbott Laboratories,0,E007,0,synthetic_hard_negative
+siemens,Siemens AG,1,E007,1,synthetic_positive
+siemens,3M,0,E007,0,synthetic_hard_negative
+siemens,Johnson & Johnson,0,E007,0,synthetic_hard_negative
+Siiemans AG,Siemens AG,1,E007,0,synthetic_positive
+Siiemans AG,Pfizer Inc,0,E007,0,synthetic_hard_negative
+Siiemans AG,General Electric,0,E007,0,synthetic_hard_negative
+Siiemans AG,Siemens AG,1,E007,0,synthetic_positive
+Siiemans AG,Bayer AG,0,E007,0,synthetic_hard_negative
+Siemens AG,Siemens AG,1,E007,0,synthetic_positive
+Siemens AG,International Business Machines,0,E007,0,synthetic_hard_negative
+SIEMENS AG,Siemens AG,1,E007,0,synthetic_positive
+SIEMENS AG,3M,0,E007,0,synthetic_hard_negative
+SIEMENS AG,International Business Machines,0,E007,0,synthetic_hard_negative
+SIEMENS AG,Siemens AG,1,E007,0,synthetic_positive
+SIEMENS AG,Abbott Laboratories,0,E007,0,synthetic_hard_negative
+SIEMENS AG,Bayer AG,0,E007,0,synthetic_hard_negative
+Siemen sAG,Siemens AG,1,E007,0,synthetic_positive
+Siemen sAG,3M,0,E007,0,synthetic_hard_negative
+siemens ag,Siemens AG,1,E007,0,synthetic_positive
+siemens ag,International Business Machines,0,E007,0,synthetic_hard_negative
+Siiemans AG,Siemens AG,1,E007,0,synthetic_positive
+Siiemans AG,Abbott Laboratories,0,E007,0,synthetic_hard_negative
+Siemens AG,Siemens AG,1,E007,0,synthetic_positive
+Siemens AG,Merck & Co,0,E007,0,synthetic_hard_negative
+Siemens AG,General Electric,0,E007,0,synthetic_hard_negative
+Siiemans AG,Siemens AG,1,E007,0,synthetic_positive
+Siiemans AG,Microsoft Corporation,0,E007,0,synthetic_hard_negative
+Siiemans AG,International Business Machines,0,E007,0,synthetic_hard_negative
+Siemen sAG,Siemens AG,1,E007,0,synthetic_positive
+Siemen sAG,Bayer AG,0,E007,0,synthetic_hard_negative
+Siemen sAG,Abbott Laboratories,0,E007,0,synthetic_hard_negative
+Siemens AG,Siemens AG,1,E007,0,synthetic_positive
+Siemens AG,Bayer AG,0,E007,0,synthetic_hard_negative
+SIEMENS AG,Siemens AG,1,E007,0,synthetic_positive
+SIEMENS AG,Microsoft Corporation,0,E007,0,synthetic_hard_negative
+SIEMENS AG,Johnson & Johnson,0,E007,0,synthetic_hard_negative
+siemens ag,Siemens AG,1,E007,0,synthetic_positive
+siemens ag,Abbott Laboratories,0,E007,0,synthetic_hard_negative
+siemens ag,3M,0,E007,0,synthetic_hard_negative
+siemens ag,Siemens AG,1,E007,0,synthetic_positive
+siemens ag,Johnson & Johnson,0,E007,0,synthetic_hard_negative
+Siiemans AG,Siemens AG,1,E007,0,synthetic_positive
+Siiemans AG,General Electric,0,E007,0,synthetic_hard_negative
+siemens,Siemens AG,1,E007,1,synthetic_positive
+siemens,Bayer AG,0,E007,0,synthetic_hard_negative
+siemens,Merck & Co,0,E007,0,synthetic_hard_negative
+SiemensAG,Siemens AG,1,E007,0,synthetic_positive
+SiemensAG,General Electric,0,E007,0,synthetic_hard_negative
+SiemensAG,International Business Machines,0,E007,0,synthetic_hard_negative
+Siemens,Siemens AG,1,E007,1,synthetic_positive
+Siemens,Abbott Laboratories,0,E007,0,synthetic_hard_negative
+SIEMENS,Siemens AG,1,E007,1,synthetic_positive
+SIEMENS,3M,0,E007,0,synthetic_hard_negative
+SIEMENS,Johnson & Johnson,0,E007,0,synthetic_hard_negative
+SiemensAG,Siemens AG,1,E007,0,synthetic_positive
+SiemensAG,General Electric,0,E007,0,synthetic_hard_negative
+SiemensAG,General Electric,0,E007,0,synthetic_hard_negative
+Siemens AG,Siemens AG,1,E007,0,synthetic_positive
+Siemens AG,Pfizer Inc,0,E007,0,synthetic_hard_negative
+SIEMENS AG,Siemens AG,1,E007,0,synthetic_positive
+SIEMENS AG,3M,0,E007,0,synthetic_hard_negative
+siemens ag,Siemens AG,1,E007,0,synthetic_positive
+siemens ag,Johnson & Johnson,0,E007,0,synthetic_hard_negative
+SIEMENS AG,Siemens AG,1,E007,0,synthetic_positive
+SIEMENS AG,Bayer AG,0,E007,0,synthetic_hard_negative
+SIEMENS AG,Johnson & Johnson,0,E007,0,synthetic_hard_negative
+General Electric,General Electric,1,E008,0,synthetic_positive
+General Electric,Siemens AG,0,E008,0,synthetic_hard_negative
+General Electric,3M,0,E008,0,synthetic_hard_negative
+GE,General Electric,1,E008,1,synthetic_positive
+GE,Microsoft Corporation,0,E008,0,synthetic_hard_negative
+G.E.,General Electric,1,E008,1,synthetic_positive
+G.E.,Abbott Laboratories,0,E008,0,synthetic_hard_negative
+General Electric,General Electric,1,E008,0,synthetic_positive
+General Electric,Merck & Co,0,E008,0,synthetic_hard_negative
+General Electric,Merck & Co,0,E008,0,synthetic_hard_negative
+G.E.,General Electric,1,E008,1,synthetic_positive
+G.E.,3M,0,E008,0,synthetic_hard_negative
+G.E.,Pfizer Inc,0,E008,0,synthetic_hard_negative
+GE,General Electric,1,E008,1,synthetic_positive
+GE,Abbott Laboratories,0,E008,0,synthetic_hard_negative
+GE,International Business Machines,0,E008,0,synthetic_hard_negative
+g.e.,General Electric,1,E008,1,synthetic_positive
+g.e.,Bayer AG,0,E008,0,synthetic_hard_negative
+general electric,General Electric,1,E008,0,synthetic_positive
+general electric,International Business Machines,0,E008,0,synthetic_hard_negative
+general electric,Abbott Laboratories,0,E008,0,synthetic_hard_negative
+General Electic Company,General Electric,1,E008,0,synthetic_positive
+General Electic Company,Merck & Co,0,E008,0,synthetic_hard_negative
+General Electic Company,Siemens AG,0,E008,0,synthetic_hard_negative
+General Electric,General Electric,1,E008,0,synthetic_positive
+General Electric,Microsoft Corporation,0,E008,0,synthetic_hard_negative
+General Electric,Johnson & Johnson,0,E008,0,synthetic_hard_negative
+GENERAL ELECTRIC,General Electric,1,E008,0,synthetic_positive
+GENERAL ELECTRIC,Siemens AG,0,E008,0,synthetic_hard_negative
+GE,General Electric,1,E008,1,synthetic_positive
+GE,Pfizer Inc,0,E008,0,synthetic_hard_negative
+GE,Siemens AG,0,E008,0,synthetic_hard_negative
+General Electric,General Electric,1,E008,0,synthetic_positive
+General Electric,3M,0,E008,0,synthetic_hard_negative
+g.e.,General Electric,1,E008,1,synthetic_positive
+g.e.,International Business Machines,0,E008,0,synthetic_hard_negative
+g.e.,Siemens AG,0,E008,0,synthetic_hard_negative
+g.e.,General Electric,1,E008,1,synthetic_positive
+g.e.,Bayer AG,0,E008,0,synthetic_hard_negative
+ge,General Electric,1,E008,1,synthetic_positive
+ge,Microsoft Corporation,0,E008,0,synthetic_hard_negative
+ge,Microsoft Corporation,0,E008,0,synthetic_hard_negative
+GE,General Electric,1,E008,1,synthetic_positive
+GE,Microsoft Corporation,0,E008,0,synthetic_hard_negative
+General Electric,General Electric,1,E008,0,synthetic_positive
+General Electric,Pfizer Inc,0,E008,0,synthetic_hard_negative
+G.E.,General Electric,1,E008,1,synthetic_positive
+G.E.,Microsoft Corporation,0,E008,0,synthetic_hard_negative
+G.E.,Siemens AG,0,E008,0,synthetic_hard_negative
+GE,General Electric,1,E008,1,synthetic_positive
+GE,Abbott Laboratories,0,E008,0,synthetic_hard_negative
+General Electic Company,General Electric,1,E008,0,synthetic_positive
+General Electic Company,Pfizer Inc,0,E008,0,synthetic_hard_negative
+General Electric,General Electric,1,E008,0,synthetic_positive
+General Electric,Siemens AG,0,E008,0,synthetic_hard_negative
+General Electric,Siemens AG,0,E008,0,synthetic_hard_negative
+General Electric,General Electric,1,E008,0,synthetic_positive
+General Electric,Abbott Laboratories,0,E008,0,synthetic_hard_negative
+General Electric,International Business Machines,0,E008,0,synthetic_hard_negative
+ge,General Electric,1,E008,1,synthetic_positive
+ge,Siemens AG,0,E008,0,synthetic_hard_negative
+general electric,General Electric,1,E008,0,synthetic_positive
+general electric,Abbott Laboratories,0,E008,0,synthetic_hard_negative
+general electric,Abbott Laboratories,0,E008,0,synthetic_hard_negative
+General Electic Company,General Electric,1,E008,0,synthetic_positive
+General Electic Company,Microsoft Corporation,0,E008,0,synthetic_hard_negative
+general electric,General Electric,1,E008,0,synthetic_positive
+general electric,Merck & Co,0,E008,0,synthetic_hard_negative
+general electric,International Business Machines,0,E008,0,synthetic_hard_negative
+g.e.,General Electric,1,E008,1,synthetic_positive
+g.e.,Bayer AG,0,E008,0,synthetic_hard_negative
+General Electric,General Electric,1,E008,0,synthetic_positive
+General Electric,3M,0,E008,0,synthetic_hard_negative
+G.E.,General Electric,1,E008,1,synthetic_positive
+G.E.,Merck & Co,0,E008,0,synthetic_hard_negative
+G.E.,3M,0,E008,0,synthetic_hard_negative
+ge,General Electric,1,E008,1,synthetic_positive
+ge,Pfizer Inc,0,E008,0,synthetic_hard_negative
+general electric,General Electric,1,E008,0,synthetic_positive
+general electric,Pfizer Inc,0,E008,0,synthetic_hard_negative
+general electric,Bayer AG,0,E008,0,synthetic_hard_negative
+General Electric,General Electric,1,E008,0,synthetic_positive
+General Electric,Johnson & Johnson,0,E008,0,synthetic_hard_negative
+General Electric,General Electric,1,E008,0,synthetic_positive
+General Electric,Pfizer Inc,0,E008,0,synthetic_hard_negative
+General Electric,General Electric,1,E008,0,synthetic_positive
+General Electric,Merck & Co,0,E008,0,synthetic_hard_negative
+g.e.,General Electric,1,E008,1,synthetic_positive
+g.e.,International Business Machines,0,E008,0,synthetic_hard_negative
+IBM,International Business Machines,1,E009,1,synthetic_positive
+IBM,Siemens AG,0,E009,0,synthetic_hard_negative
+IBM,Abbott Laboratories,0,E009,0,synthetic_hard_negative
+I.B.M.,International Business Machines,1,E009,1,synthetic_positive
+I.B.M.,Bayer AG,0,E009,0,synthetic_hard_negative
+I.B.M.,Merck & Co,0,E009,0,synthetic_hard_negative
+IBM Corporation,International Business Machines,1,E009,1,synthetic_positive
+IBM Corporation,Pfizer Inc,0,E009,0,synthetic_hard_negative
+IBM Corporation,General Electric,0,E009,0,synthetic_hard_negative
+IBM,International Business Machines,1,E009,1,synthetic_positive
+IBM,General Electric,0,E009,0,synthetic_hard_negative
+IBM,Johnson & Johnson,0,E009,0,synthetic_hard_negative
+IBM Corporation,International Business Machines,1,E009,1,synthetic_positive
+IBM Corporation,Pfizer Inc,0,E009,0,synthetic_hard_negative
+IBM Corporation,General Electric,0,E009,0,synthetic_hard_negative
+ibm,International Business Machines,1,E009,1,synthetic_positive
+ibm,Pfizer Inc,0,E009,0,synthetic_hard_negative
+ibm,Johnson & Johnson,0,E009,0,synthetic_hard_negative
+International Business Machies,International Business Machines,1,E009,0,synthetic_positive
+International Business Machies,Merck & Co,0,E009,0,synthetic_hard_negative
+International Business Machies,Abbott Laboratories,0,E009,0,synthetic_hard_negative
+IBM Corporation,International Business Machines,1,E009,1,synthetic_positive
+IBM Corporation,Bayer AG,0,E009,0,synthetic_hard_negative
+IBM Corporation,3M,0,E009,0,synthetic_hard_negative
+ibm corporation,International Business Machines,1,E009,1,synthetic_positive
+ibm corporation,3M,0,E009,0,synthetic_hard_negative
+International Business Machies,International Business Machines,1,E009,0,synthetic_positive
+International Business Machies,General Electric,0,E009,0,synthetic_hard_negative
+International Business Machies,International Business Machines,1,E009,0,synthetic_positive
+International Business Machies,3M,0,E009,0,synthetic_hard_negative
+IBM Corporation,International Business Machines,1,E009,1,synthetic_positive
+IBM Corporation,Abbott Laboratories,0,E009,0,synthetic_hard_negative
+IBMCorporation,International Business Machines,1,E009,0,synthetic_positive
+IBMCorporation,3M,0,E009,0,synthetic_hard_negative
+IBMCorporation,Abbott Laboratories,0,E009,0,synthetic_hard_negative
+IBM,International Business Machines,1,E009,1,synthetic_positive
+IBM,Merck & Co,0,E009,0,synthetic_hard_negative
+IBMCorporation,International Business Machines,1,E009,0,synthetic_positive
+IBMCorporation,Merck & Co,0,E009,0,synthetic_hard_negative
+I.B.M.,International Business Machines,1,E009,1,synthetic_positive
+I.B.M.,Merck & Co,0,E009,0,synthetic_hard_negative
+i.b.m.,International Business Machines,1,E009,1,synthetic_positive
+i.b.m.,3M,0,E009,0,synthetic_hard_negative
+i.b.m.,Abbott Laboratories,0,E009,0,synthetic_hard_negative
+i.b.m.,International Business Machines,1,E009,1,synthetic_positive
+i.b.m.,3M,0,E009,0,synthetic_hard_negative
+i.b.m.,Microsoft Corporation,0,E009,0,synthetic_hard_negative
+IBM,International Business Machines,1,E009,1,synthetic_positive
+IBM,Bayer AG,0,E009,0,synthetic_hard_negative
+ibm corporation,International Business Machines,1,E009,1,synthetic_positive
+ibm corporation,Microsoft Corporation,0,E009,0,synthetic_hard_negative
+IBM,International Business Machines,1,E009,1,synthetic_positive
+IBM,3M,0,E009,0,synthetic_hard_negative
+ibm,International Business Machines,1,E009,1,synthetic_positive
+ibm,Siemens AG,0,E009,0,synthetic_hard_negative
+I.B.M.,International Business Machines,1,E009,1,synthetic_positive
+I.B.M.,3M,0,E009,0,synthetic_hard_negative
+I.B.M.,Siemens AG,0,E009,0,synthetic_hard_negative
+ibm,International Business Machines,1,E009,1,synthetic_positive
+ibm,Johnson & Johnson,0,E009,0,synthetic_hard_negative
+ibm,Merck & Co,0,E009,0,synthetic_hard_negative
+IBM CORPORATION,International Business Machines,1,E009,1,synthetic_positive
+IBM CORPORATION,Bayer AG,0,E009,0,synthetic_hard_negative
+IBM CORPORATION,Microsoft Corporation,0,E009,0,synthetic_hard_negative
+IBM,International Business Machines,1,E009,1,synthetic_positive
+IBM,Siemens AG,0,E009,0,synthetic_hard_negative
+IBM,Merck & Co,0,E009,0,synthetic_hard_negative
+ibm corporation,International Business Machines,1,E009,1,synthetic_positive
+ibm corporation,3M,0,E009,0,synthetic_hard_negative
+IBM CORPORATION,International Business Machines,1,E009,1,synthetic_positive
+IBM CORPORATION,Microsoft Corporation,0,E009,0,synthetic_hard_negative
+IBM CORPORATION,Bayer AG,0,E009,0,synthetic_hard_negative
+IBM CORPORATION,International Business Machines,1,E009,1,synthetic_positive
+IBM CORPORATION,Johnson & Johnson,0,E009,0,synthetic_hard_negative
+IBM,International Business Machines,1,E009,1,synthetic_positive
+IBM,Bayer AG,0,E009,0,synthetic_hard_negative
+IBM Corporation,International Business Machines,1,E009,1,synthetic_positive
+IBM Corporation,Johnson & Johnson,0,E009,0,synthetic_hard_negative
+IBM Corporation,Pfizer Inc,0,E009,0,synthetic_hard_negative
+I.B.M.,International Business Machines,1,E009,1,synthetic_positive
+I.B.M.,Merck & Co,0,E009,0,synthetic_hard_negative
+IBM Corporation,International Business Machines,1,E009,1,synthetic_positive
+IBM Corporation,Johnson & Johnson,0,E009,0,synthetic_hard_negative
+Microsoft,Microsoft Corporation,1,E010,1,synthetic_positive
+Microsoft,Siemens AG,0,E010,0,synthetic_hard_negative
+Microsoft,Bayer AG,0,E010,0,synthetic_hard_negative
+MICROSOFT,Microsoft Corporation,1,E010,1,synthetic_positive
+MICROSOFT,General Electric,0,E010,0,synthetic_hard_negative
+Micrsooft Corp,Microsoft Corporation,1,E010,0,synthetic_positive
+Micrsooft Corp,Siemens AG,0,E010,0,synthetic_hard_negative
+Micrsooft Corp,Siemens AG,0,E010,0,synthetic_hard_negative
+microsoft,Microsoft Corporation,1,E010,1,synthetic_positive
+microsoft,Siemens AG,0,E010,0,synthetic_hard_negative
+microsoft,Siemens AG,0,E010,0,synthetic_hard_negative
+MICROSOFT,Microsoft Corporation,1,E010,1,synthetic_positive
+MICROSOFT,Merck & Co,0,E010,0,synthetic_hard_negative
+MICROSOFT,Siemens AG,0,E010,0,synthetic_hard_negative
+Micrsooft Corp,Microsoft Corporation,1,E010,0,synthetic_positive
+Micrsooft Corp,Abbott Laboratories,0,E010,0,synthetic_hard_negative
+Micrsooft Corp,International Business Machines,0,E010,0,synthetic_hard_negative
+Microsoft,Microsoft Corporation,1,E010,1,synthetic_positive
+Microsoft,Abbott Laboratories,0,E010,0,synthetic_hard_negative
+Microsoft,Pfizer Inc,0,E010,0,synthetic_hard_negative
+MICROSOFT,Microsoft Corporation,1,E010,1,synthetic_positive
+MICROSOFT,Pfizer Inc,0,E010,0,synthetic_hard_negative
+MICROSOFT,Pfizer Inc,0,E010,0,synthetic_hard_negative
+Miicrosoft,Microsoft Corporation,1,E010,0,synthetic_positive
+Miicrosoft,Pfizer Inc,0,E010,0,synthetic_hard_negative
+microsoft,Microsoft Corporation,1,E010,1,synthetic_positive
+microsoft,Abbott Laboratories,0,E010,0,synthetic_hard_negative
+Microsoft,Microsoft Corporation,1,E010,1,synthetic_positive
+Microsoft,Pfizer Inc,0,E010,0,synthetic_hard_negative
+Micrsooft Corp,Microsoft Corporation,1,E010,0,synthetic_positive
+Micrsooft Corp,3M,0,E010,0,synthetic_hard_negative
+Micrsooft Corp,Johnson & Johnson,0,E010,0,synthetic_hard_negative
+microsoft,Microsoft Corporation,1,E010,1,synthetic_positive
+microsoft,Pfizer Inc,0,E010,0,synthetic_hard_negative
+microsoft,Bayer AG,0,E010,0,synthetic_hard_negative
+MICROSOFT,Microsoft Corporation,1,E010,1,synthetic_positive
+MICROSOFT,Johnson & Johnson,0,E010,0,synthetic_hard_negative
+MICROSOFT,Siemens AG,0,E010,0,synthetic_hard_negative
+Miicrosoft,Microsoft Corporation,1,E010,0,synthetic_positive
+Miicrosoft,Bayer AG,0,E010,0,synthetic_hard_negative
+Miicrosoft,Pfizer Inc,0,E010,0,synthetic_hard_negative
+microsoft,Microsoft Corporation,1,E010,1,synthetic_positive
+microsoft,Bayer AG,0,E010,0,synthetic_hard_negative
+Miicrosoft,Microsoft Corporation,1,E010,0,synthetic_positive
+Miicrosoft,Siemens AG,0,E010,0,synthetic_hard_negative
+Micrsooft Corp,Microsoft Corporation,1,E010,0,synthetic_positive
+Micrsooft Corp,Siemens AG,0,E010,0,synthetic_hard_negative
+Micrsooft Corp,Bayer AG,0,E010,0,synthetic_hard_negative
+Micrsooft Corp,Microsoft Corporation,1,E010,0,synthetic_positive
+Micrsooft Corp,3M,0,E010,0,synthetic_hard_negative
+Micrsooft Corp,Microsoft Corporation,1,E010,0,synthetic_positive
+Micrsooft Corp,3M,0,E010,0,synthetic_hard_negative
+Microsoft,Microsoft Corporation,1,E010,1,synthetic_positive
+Microsoft,3M,0,E010,0,synthetic_hard_negative
+Microsoft,Bayer AG,0,E010,0,synthetic_hard_negative
+Miicrosoft,Microsoft Corporation,1,E010,0,synthetic_positive
+Miicrosoft,Johnson & Johnson,0,E010,0,synthetic_hard_negative
+Miicrosoft,Siemens AG,0,E010,0,synthetic_hard_negative
+microsoft,Microsoft Corporation,1,E010,1,synthetic_positive
+microsoft,General Electric,0,E010,0,synthetic_hard_negative
+Microsoft,Microsoft Corporation,1,E010,1,synthetic_positive
+Microsoft,Johnson & Johnson,0,E010,0,synthetic_hard_negative
+Microsoft,Abbott Laboratories,0,E010,0,synthetic_hard_negative
